@@ -1,0 +1,20 @@
+<!-- Partial State for Home -->
+<div class="container-fluid text-center backpic w3-container w3-center w3-animate-opacity">
+    <h1 class="mainH">ELITE 7</h1>
+    <h4>-Property Management-</h4>
+    <div class="row content searchBar">
+        <div>
+            <div class="container">
+                <form ng-submit="" class="form-inline" name="searchForm">
+                    <input type="text" class="form-control" ng-model="vm.cityName" placeholder="Search by City">
+                    <input type="text" class="form-control" ng-model="vm.minRent" placeholder="Search by Min Rent">
+                    <input type="text" class="form-control" ng-model="vm.maxRent" placeholder="Search by Max Rent">
+                    <input type="text" class="form-control" ng-model="vm.bedrooms" placeholder="Search by Bedrooms">
+                    <input type="text" class="form-control" ng-model="vm.bathrooms" placeholder="Search by BATHROOMS">
+                    <button class="btn btn-success" ui-sref="home.result({cityName: vm.cityName, minRent: vm.minRent, maxRent: vm.maxRent, bedrooms: vm.bedrooms, bathrooms: vm.bathrooms})" ng-click="vm.searchProperties(vm.cityName)" type="button">Search!</button>
+                </form>
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+</div>

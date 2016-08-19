@@ -1,0 +1,19 @@
+
+<div class="row resultsContainer">
+    <div class="col-md-4" ng-repeat="data in vm.searchResults">
+        <div class="panel panel-default searchResult">
+            <div class="panel-body">
+            	<img class="propertyPic" ng-src="../img/{{data.PropertyId}}.jpg">
+                <p>Description: {{data.Description}} </p>
+                <p>Street: {{data.Street}}</p>
+                <p>City: {{data.City}}</p>
+                <p>Zip: {{data.Zip}}</p>
+                <p>Rent:{{data.Rent}}</p>
+                <p>Square ft:{{data.Squareft}}</p>
+                <p>Bedrooms: {{data.Bedrooms}}</p>
+                <p>Bathrooms: {{data.Bathrooms}}</p>
+              
+            </div>
+        </div>
+    </div>
+</div>

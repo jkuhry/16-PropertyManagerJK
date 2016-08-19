@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='app'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Property Manager</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/app/styles/styles.css">
+    <!-- endinject -->
+</head>
+
+<body ng-controller='AuthController as vm'>
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <!-- endbower -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Elite 7</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Forms<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a target="_blank" href="forms/propertymanagementagreementform.pdf">Property Manager Agreement</a></li>
+                            <li><a href="forms/resleaserentalagreementform.pdf">Lease Agreement</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li ng-show="vm.userLoggedIn"><a ui-sref="dashboard" href="#">Dashboard</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-hide="vm.userLoggedIn"><a href="#" ui-sref="registration"><span class="glyphicon glyphicon-pencil"></span> Sign Up</a></li>
+                    <li ng-hide="vm.userLoggedIn">
+                        <a class="btn btn-default btn-outline btn-circle" data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Log in</a>
+                    </li>
+                    <li ng-show="vm.userLoggedIn">
+                        <a class="btn btn-default btn-outline btn-circle" ng-click="vm.logoutUser()">Log out</a>
+                    </li>
+                </ul>
+
+
+                <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2">
+                    <form class="navbar-form navbar-right form-inline" role="form">
+                        <div class="form-group">
+                            <label class="sr-only" for="Email">Email</label>
+                            <input ng-model="vm.username" type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="Password">Password</label>
+                            <input ng-model="vm.password" type="password" class="form-control" id="Password" placeholder="Password" required />
+                        </div>
+                        <button ng-click="vm.loginUser(vm.username, vm.password)" data-toggle="collapse" aria-expanded="false" data-target="#nav-collapse2" type="submit" class="btn btn-success">Sign in</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Anchor point for partial states -->
+    <div ui-view></div>
+    <footer class="container-fluid text-center">
+        <p>&copy; Elite 7
+        </p>
+        <p>101 W. Broadway Ste #1125</p>
+        <p>San Diego, CA 92101</p>
+        <p>Phone:(555)555-5555</p>
+    </footer>
+    <!-- inject:js -->
+    <script src="/app/app.js"></script>
+    <script src="/app/auth/auth.controller.js"></script>
+    <script src="/app/auth/auth.factory.js"></script>
+    <script src="/app/auth/auth.interceptor.js"></script>
+    <script src="/app/property/property.controller.js"></script>
+    <script src="/app/property/property.factory.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>
